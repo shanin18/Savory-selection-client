@@ -7,7 +7,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination } from "swiper";
 
-const ChefDetails = () => {
+const ChefRecipes = () => {
   const [fold, setFold] = useState(false);
   const [recipes, setRecipes] = useState([]);
   const allChef = useLoaderData();
@@ -56,7 +56,7 @@ const ChefDetails = () => {
               </p>
             ) : (
               <p className="font-montserrat font-medium text-gray-600">
-                {bio}..
+                {bio}
                 <button
                   onClick={() => setFold(!fold)}
                   className="text-yellow-400"
@@ -104,4 +104,4 @@ const ChefDetails = () => {
   );
 };
 
-export default ChefDetails;
+export default ChefRecipes;

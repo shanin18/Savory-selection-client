@@ -42,7 +42,7 @@ const RecipeCard = ({ recipe }) => {
             </p>
           ) : (
             <p>
-              {cooking_method}..
+              {cooking_method}
               <button
                 onClick={() => setFold(!fold)}
                 className="text-sm text-yellow-400"
