@@ -17,7 +17,7 @@ const ChefCard = ({ chef }) => {
           <p className="font-montserrat font-medium mt-3">Likes: {likes}</p>
         </div>
         <div className="mt-6">
-          <Link>
+          <Link to={`/chef/${id}`}>
             <button className="font-semibold font-montserrat btn btn-warning">
               View Recipes
             </button>

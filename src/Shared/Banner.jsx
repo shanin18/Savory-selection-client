@@ -1,5 +1,5 @@
 import React from "react";
-import banner2 from "../../public/banner-images/banner2.jpg";
+import banner2 from "/banner-images/banner2.jpg";
 import { HiArrowNarrowDown } from "react-icons/hi";
 
 const Banner = () => {
@@ -17,7 +17,7 @@ const Banner = () => {
             Taste Your best Food From your <br /> Favorite chef
           </h3>
           <div className="flex justify-center pt-4">
-            <a href="#">
+            <a href="#all_Chef">
               <HiArrowNarrowDown className="text-2xl md:text-3xl lg:text-4xl rounded-full animate-bounce border p-1 border-yellow-300 text-yellow-300"></HiArrowNarrowDown>
             </a>
           </div>
