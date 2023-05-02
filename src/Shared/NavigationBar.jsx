@@ -1,10 +1,23 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { HiMenuAlt3, HiX } from "react-icons/hi";
 import logo from "../assets/images/logo.png";
+import { AuthContext } from "../Context/AuthProvider";
+import "react-tooltip/dist/react-tooltip.css";
+import { Tooltip as ReactTooltip } from "react-tooltip";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const NavigationBar = () => {
   const [toggle, setToggle] = useState(false);
+
+  const { user, logOut } = useContext(AuthContext);
+  const handleLogOut = () =>{
+    logOut()
+    .then(()=> toast("logout successfully!!"))
+    .catch(err=> toast.error(err.message))
+  }
+  console.log(user)
 
   return (
     <nav className="bg-warning md:flex md:items-center md:justify-between md:px-5 py-2">
@@ -59,15 +72,39 @@ const NavigationBar = () => {
             Blog
           </NavLink>
         </li>
-        <li className="text-lg lg:px-2 py-6 font-semibold font-montserrat">
-          <NavLink
-            to="/login"
-            className={({ isActive }) => (isActive ? "text-white" : "")}
-          >
-            Login
-          </NavLink>
-        </li>
+        {!user ? (
+          <li className="text-lg lg:px-2 py-6 font-semibold font-montserrat">
+            <NavLink
+              to="/login"
+              className={({ isActive }) => (isActive ? "text-white" : "")}
+            >
+              Login
+            </NavLink>
+          </li>
+        ) : (
+          <div className="dropdown dropdown-end">
+            <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+              <div id="tool-tip" className="w-10 rounded-full">
+                <img src={user?.photoURL} />
+              </div>
+            </label>
+            <ul
+              tabIndex={0}
+              className="mt-3 p-2 shadow menu menu-compact dropdown-content dropdown-center md:dropdown-end bg-base-100 rounded-box w-52"
+            >
+              <li onClick={handleLogOut}>
+                <p className="font-montserrat font-semibold">Logout</p>
+              </li>
+            </ul>
+          </div>
+        )}
       </ul>
+      <ReactTooltip
+        anchorId="tool-tip"
+        place="bottom"
+        content={user?.displayName}
+        className="z-50 font-montserrat bg-black"
+      />
     </nav>
   );
 };

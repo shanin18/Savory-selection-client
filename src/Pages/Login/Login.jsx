@@ -1,9 +1,13 @@
 import React, { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import LoginWithSocial from "../../components/LoginWithSocial/LoginWithSocial";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 
 const Login = () => {
   const [checked, setChecked] = useState(false);
+  const [passHidden, setPassHidden] = useState(false);
   const emailRef = useRef();
 
   const handleFormLogin = () => {};
@@ -24,14 +28,29 @@ const Login = () => {
             ref={emailRef}
             required
           />
-          <input
-            className="w-full font-semibold text-[#000000] placeholder:text-[#000000] font-montserrat border-0 border-b-[1px] px-0 border-[#C5C5C5] focus:ring-0 focus:border-[#C5C5C5] mb-6"
-            name="password"
-            type="password"
-            placeholder="Password"
-            autoComplete="current-password"
-            required
-          />
+          <div className="relative">
+            <input
+              className="w-full font-semibold text-[#000000] placeholder:text-[#000000] font-montserrat border-0 border-b-[1px] px-0 border-[#C5C5C5] focus:ring-0 focus:border-[#C5C5C5] mb-6 pr-10"
+              name="password"
+              type="password"
+              placeholder="Password"
+              autoComplete="current-password"
+              required
+            />
+            <div className="absolute right-3 top-3">
+              {!passHidden ? (
+                <AiFillEye
+                  className="text-xl cursor-pointer"
+                  onClick={() => setPassHidden(!passHidden)}
+                ></AiFillEye>
+              ) : (
+                <AiFillEyeInvisible
+                  className="text-xl cursor-pointer"
+                  onClick={() => setPassHidden(!passHidden)}
+                ></AiFillEyeInvisible>
+              )}
+            </div>
+          </div>
           <div className="flex justify-between items-center mb-12">
             <div className="flex items-start">
               <div className="flex items-center h-5">
