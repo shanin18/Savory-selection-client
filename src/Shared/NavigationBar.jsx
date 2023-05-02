@@ -9,25 +9,25 @@ const NavigationBar = () => {
   return (
     <nav className="bg-warning md:flex md:items-center md:justify-between md:px-5 py-2">
       <div>
-        <Link to="/">
-          <div className="flex justify-between items-center gap-3">
+        <div className="flex justify-between items-center gap-3">
+          <Link to="/">
             <span className="text-2xl flex items-center font-semibold font-montserrat">
               <img className="w-20" src={logo} alt="logo" />
               Savory Selections
             </span>
+          </Link>
 
-            <span
-              onClick={() => setToggle(!toggle)}
-              className="mx-2 md:hidden block"
-            >
-              {!toggle ? (
-                <HiMenuAlt3 className="text-3xl"></HiMenuAlt3>
-              ) : (
-                <HiX className="text-3xl"></HiX>
-              )}
-            </span>
-          </div>
-        </Link>
+          <span
+            onClick={() => setToggle(!toggle)}
+            className="mx-2 md:hidden block"
+          >
+            {!toggle ? (
+              <HiMenuAlt3 className="text-3xl"></HiMenuAlt3>
+            ) : (
+              <HiX className="text-3xl"></HiX>
+            )}
+          </span>
+        </div>
       </div>
 
       <ul
@@ -61,10 +61,10 @@ const NavigationBar = () => {
         </li>
         <li className="text-lg lg:px-2 py-6 font-semibold font-montserrat">
           <NavLink
-            to="/blog"
+            to="/login"
             className={({ isActive }) => (isActive ? "text-white" : "")}
           >
-            <button className="">Login</button>
+            Login
           </NavLink>
         </li>
       </ul>
