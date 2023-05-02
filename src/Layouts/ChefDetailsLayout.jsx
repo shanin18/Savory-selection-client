@@ -5,9 +5,9 @@ import Footer from "../Shared/Footer";
 
 const ChefDetailsLayout = () => {
   return (
+    <div>
+      <NavigationBar></NavigationBar>
       <div>
-        <NavigationBar></NavigationBar>
-      <div className="">
         <Outlet></Outlet>
       </div>
       <Footer></Footer>

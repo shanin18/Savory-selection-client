@@ -1,14 +1,14 @@
-import React from 'react';
-import Chef from '../Chef/Chef';
-import Banner from '../../Shared/Banner';
+import React from "react";
+import Chef from "../Chef/Chef";
+import Banner from "../../Shared/Banner";
 
 const Home = () => {
-    return (
-        <div>
-           <Banner></Banner>
-           <Chef></Chef>
-        </div>
-    );
+  return (
+    <div>
+      <Banner></Banner>
+      <Chef></Chef>
+    </div>
+  );
 };
 
 export default Home;
