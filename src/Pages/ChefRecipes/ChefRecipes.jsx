@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigation } from "react-router-dom";
 import RecipeCard from "./RecipeCard";
-
+import LazyLoad from "react-lazy-load";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
@@ -11,6 +11,8 @@ const ChefRecipes = () => {
   const [fold, setFold] = useState(false);
   const [recipes, setRecipes] = useState([]);
   const allChef = useLoaderData();
+  const navigation = useNavigation();
+  console.log(navigation)
 
   const {
     id,
@@ -39,7 +41,9 @@ const ChefRecipes = () => {
       </div>
       <div className=" md:flex gap-10">
         <div className="md:w-2/5">
-          <img className="w-full rounded-md" src={picture} alt="image" />
+          <LazyLoad>
+            <img className="w-full rounded-md" src={picture} alt="image" />
+          </LazyLoad>
         </div>
         <div className="md:w-3/5 py-6 md:py-0">
           <h3 className="font-bold font-montserrat text-3xl mb-4">{name}</h3>
@@ -76,7 +80,7 @@ const ChefRecipes = () => {
         </div>
       </div>
 
-      <div className="mt-10">
+      <div className="mt-32">
         <div className="flex justify-center">
           <h2 className="text-3xl md:text-4xl font-bold font-montserrat mb-10 border-0 border-b-4 border-b-yellow-300 rounded-xl shadow-xl px-5 md:px-10 text-center mx-2 border-t py-4 w-fit">
             Recipes

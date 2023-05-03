@@ -8,6 +8,7 @@ import { Tooltip as ReactTooltip } from "react-tooltip";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+
 const NavigationBar = () => {
   const [toggle, setToggle] = useState(false);
 
@@ -72,14 +73,11 @@ const NavigationBar = () => {
           </NavLink>
         </li>
         {!user ? (
-          <li className="text-lg lg:px-2 py-6 font-semibold font-montserrat">
-            <NavLink
-              to="/login"
-              className={({ isActive }) => (isActive ? "text-white" : "")}
-            >
-              Login
+            <NavLink to="/login">
+              <button className="lg:mr-2 font-montserrat text-semibold btn bg-black text-yellow-300 px-6 py-2">
+                Login
+              </button>
             </NavLink>
-          </li>
         ) : (
           <div className="dropdown dropdown-end">
             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
@@ -87,7 +85,7 @@ const NavigationBar = () => {
                 <img
                   src={
                     user?.photoURL
-                      ? user.photoURL
+                      ? user?.photoURL
                       : "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png "
                   }
                 />

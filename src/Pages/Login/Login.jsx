@@ -1,6 +1,6 @@
 import React, { useContext, useRef, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import LoginWithSocial from "../../components/LoginWithSocial/LoginWithSocial";
+import LoginWithSocial from "../../components/LoginWithSocial";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
@@ -9,6 +9,7 @@ import { AuthContext } from "../../Context/AuthProvider";
 const Login = () => {
   const [checked, setChecked] = useState(false);
   const [passHidden, setPassHidden] = useState(false);
+  const [error, setError] = useState("")
   const emailRef = useRef();
   const navigate = useNavigate();
   const location = useLocation();
@@ -20,12 +21,17 @@ const Login = () => {
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
+    setError("");
+    if(password.length < 6){
+      setError("password should be at least 6 character");
+      return;
+    }
 
     loginUser(email, password)
       .then(() => {
         navigate(from, { replace: true });
       })
-      .catch((err) => console.log(err?.message));
+      .catch((err) => setError(err?.message));
 
     form.reset();
   };
@@ -37,7 +43,7 @@ const Login = () => {
         .then(() => {
           toast.warning("please check your email");
         })
-        .catch((err) => console.log(err));
+        .catch((err) => toast.error(err));
     }
     else{
       toast.error("please provide email")
@@ -60,9 +66,9 @@ const Login = () => {
             ref={emailRef}
             required
           />
-          <div className="relative">
+          <div className="relative mb-6">
             <input
-              className="w-full font-semibold text-[#000000] placeholder:text-[#000000] font-montserrat border-0 border-b-[1px] px-0 border-[#C5C5C5] focus:ring-0 focus:border-[#C5C5C5] mb-6 pr-10"
+              className="w-full font-semibold text-[#000000] placeholder:text-[#000000] font-montserrat border-0 border-b-[1px] px-0 border-[#C5C5C5] focus:ring-0 focus:border-[#C5C5C5] pr-10"
               name="password"
               type={!passHidden ? "password" : "text"}
               placeholder="Password"
@@ -82,7 +88,10 @@ const Login = () => {
                 ></AiFillEyeInvisible>
               )}
             </div>
+            <small className="text-red-600 font-montserrat mt-2">{error}</small>
           </div>
+
+
           <div className="flex justify-between items-center mb-12">
             <div className="flex items-start">
               <div className="flex items-center h-5">

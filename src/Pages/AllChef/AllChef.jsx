@@ -1,13 +1,22 @@
 import React, { useEffect, useState } from "react";
 import ChefCard from "./ChefCard";
+import { useNavigation } from "react-router-dom";
+import LoadingSpinner from "../../components/LoadingSpinner";
 
 const AllChef = () => {
+  
+  const navigation = useNavigation();
+  if(navigation.state === "loading"){
+    return <LoadingSpinner></LoadingSpinner>
+  }
+  
   const [allChef, setAllChef] = useState([]);
   useEffect(() => {
     fetch("https://savory-selection-server-shanin18.vercel.app/chef")
       .then((res) => res.json())
       .then((data) => setAllChef(data));
   }, []);
+
 
   return (
     <div className="my-20" id="all_Chef">

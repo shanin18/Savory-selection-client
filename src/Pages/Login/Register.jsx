@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import LoginWithSocial from "../../components/LoginWithSocial/LoginWithSocial";
+import LoginWithSocial from "../../components/LoginWithSocial";
 import { AuthContext } from "../../Context/AuthProvider";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";

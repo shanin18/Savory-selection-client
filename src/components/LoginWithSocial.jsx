@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { AuthContext } from "../../Context/AuthProvider";
+import { AuthContext } from "../Context/AuthProvider";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -17,7 +17,7 @@ const LoginWithSocial = () => {
         navigate(from)
         toast("SignIn successfully!!");
       })
-      .catch((err) => toast.err(err.message));
+      .catch((err) => toast.error(err.message));
   };
 
   const handleLoginWithGoogle = () => {

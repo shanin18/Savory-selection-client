@@ -26,7 +26,7 @@ const RecipeCard = ({ recipe }) => {
           {recipe_name}
         </h3>
         <details>
-          <summary id="ingredients" className="font-bold font-montserrat text-lg mb-2 w-fit">
+          <summary id="ingredients" className="font-bold font-montserrat text-lg cursor-pointer w-fit">
             ingredients:
           </summary>
           <div>

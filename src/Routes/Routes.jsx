@@ -11,11 +11,13 @@ import BlogLayout from "../Layouts/BlogLayout";
 import Blog from "../Pages/Blog/Blog";
 import ChefRecipesLayout from "../Layouts/ChefRecipesLayout";
 import PrivateRoute from "./PrivateRoute";
+import ErrorPage from "../components/ErrorPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout></MainLayout>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",
@@ -26,6 +28,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <ChefRecipesLayout></ChefRecipesLayout>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/chef/:id",
@@ -35,13 +38,16 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`https://savory-selection-server-shanin18.vercel.app/chef/${params.id}`),
+          fetch(
+            `https://savory-selection-server-shanin18.vercel.app/chef/${params.id}`
+          ),
       },
     ],
   },
   {
     path: "/",
     element: <LoginLayout></LoginLayout>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/login",
@@ -56,6 +62,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <BlogLayout></BlogLayout>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/blog",
