@@ -1,14 +1,16 @@
 import React from "react";
 import AllChef from "../AllChef/AllChef";
 import Banner from "../../Shared/Banner";
-import Gallery from "../../Shared/Gallery";
+import Catering from "../../Shared/Catering";
+import Review from "../../Shared/Review";
 
 const Home = () => {
   return (
     <div>
       <Banner></Banner>
       <AllChef></AllChef>
-      <Gallery></Gallery>
+      <Catering></Catering>
+      <Review></Review>
     </div>
   );
 };
