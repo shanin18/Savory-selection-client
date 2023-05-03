@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import LoginWithSocial from "../../components/LoginWithSocial/LoginWithSocial";
 import { AuthContext } from "../../Context/AuthProvider";
 import { toast } from "react-toastify";
@@ -10,6 +10,7 @@ const Register = () => {
   const { createUser, updateUserProfile } = useContext(AuthContext);
   const [passwordErr, setPasswordErr] = useState("");
   const [passHidden, setPassHidden] = useState(false);
+  const navigate = useNavigate();
 
   const handleFormRegister = (e) => {
     e.preventDefault();
@@ -18,22 +19,23 @@ const Register = () => {
     const email = form.email.value;
     const password = form.password.value;
     const url = form.photo_url.value;
+
     setPasswordErr("");
-    if(password.length < 6){
-        setPasswordErr("password must be at least 6 characters")
+    if (password.length < 6) {
+      setPasswordErr("password must be at least 6 characters");
     }
 
     createUser(email, password)
-      .then(() => {
+      .then((result) => {
         toast("Account created successfully!!");
+        updateUserProfile(result.user, name, url)
+          .then(() => {
+            navigate("/");
+          })
+          .catch((err) => console.log(err));
       })
       .catch((err) => toast.error(err.message));
-
-    updateUserProfile(name, url)
-      .then(() => toast("Profile updated!!"))
-      .catch((err) => console.log(err.message));
   };
-
 
   return (
     <div className="my-10">

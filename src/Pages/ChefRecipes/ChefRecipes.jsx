@@ -23,7 +23,7 @@ const ChefRecipes = () => {
   } = allChef;
 
   useEffect(() => {
-    fetch("http://localhost:5000/recipes")
+    fetch("https://savory-selection-server-shanin18.vercel.app/recipes")
       .then((res) => res.json())
       .then((data) => setRecipes(data));
   }, []);

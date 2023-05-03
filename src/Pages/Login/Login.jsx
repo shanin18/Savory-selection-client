@@ -1,16 +1,48 @@
-import React, { useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useRef, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import LoginWithSocial from "../../components/LoginWithSocial/LoginWithSocial";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
+import { AuthContext } from "../../Context/AuthProvider";
 
 const Login = () => {
   const [checked, setChecked] = useState(false);
   const [passHidden, setPassHidden] = useState(false);
   const emailRef = useRef();
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location?.state?.from?.pathname || "/";
+  const { loginUser, resetPassword } = useContext(AuthContext);
 
-  const handleFormLogin = () => {};
+  const handleFormLogin = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+
+    loginUser(email, password)
+      .then(() => {
+        navigate(from, { replace: true });
+      })
+      .catch((err) => console.log(err?.message));
+
+    form.reset();
+  };
+
+  const handleResetPassword = () => {
+    const email = emailRef.current.value;
+    if (email) {
+      resetPassword(email)
+        .then(() => {
+          toast.warning("please check your email");
+        })
+        .catch((err) => console.log(err));
+    }
+    else{
+      toast.error("please provide email")
+    }
+  };
 
   return (
     <div className="my-10">
@@ -32,7 +64,7 @@ const Login = () => {
             <input
               className="w-full font-semibold text-[#000000] placeholder:text-[#000000] font-montserrat border-0 border-b-[1px] px-0 border-[#C5C5C5] focus:ring-0 focus:border-[#C5C5C5] mb-6 pr-10"
               name="password"
-              type="password"
+              type={!passHidden ? "password" : "text"}
               placeholder="Password"
               autoComplete="current-password"
               required
@@ -69,7 +101,10 @@ const Login = () => {
               </label>
             </div>
             <div>
-              <p className="text-[#F9A51A] text-sm font-semibold font-montserrat underline">
+              <p
+                onClick={handleResetPassword}
+                className="text-[#F9A51A] text-sm cursor-pointer font-semibold font-montserrat underline"
+              >
                 Forgot Password
               </p>
             </div>

@@ -12,12 +12,11 @@ const NavigationBar = () => {
   const [toggle, setToggle] = useState(false);
 
   const { user, logOut } = useContext(AuthContext);
-  const handleLogOut = () =>{
+  const handleLogOut = () => {
     logOut()
-    .then(()=> toast("logout successfully!!"))
-    .catch(err=> toast.error(err.message))
-  }
-  console.log(user)
+      .then(() => toast("logout successfully!!"))
+      .catch((err) => toast.error(err.message));
+  };
 
   return (
     <nav className="bg-warning md:flex md:items-center md:justify-between md:px-5 py-2">
@@ -85,7 +84,13 @@ const NavigationBar = () => {
           <div className="dropdown dropdown-end">
             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
               <div id="tool-tip" className="w-10 rounded-full">
-                <img src={user?.photoURL} />
+                <img
+                  src={
+                    user?.photoURL
+                      ? user.photoURL
+                      : "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png "
+                  }
+                />
               </div>
             </label>
             <ul

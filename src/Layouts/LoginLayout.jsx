@@ -9,7 +9,9 @@ const LoginLayout = () => {
   return (
     <div>
       <NavigationBar></NavigationBar>
-      <Outlet></Outlet>
+      <div className="min-h-[calc(100vh-410px)]">
+        <Outlet></Outlet>
+      </div>
       <Footer></Footer>
       <ToastContainer></ToastContainer>
     </div>

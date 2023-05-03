@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import ChefCard from "./ChefCard";
 
-const Chef = () => {
+const AllChef = () => {
   const [allChef, setAllChef] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/chef")
+    fetch("https://savory-selection-server-shanin18.vercel.app/chef")
       .then((res) => res.json())
       .then((data) => setAllChef(data));
   }, []);
@@ -17,7 +17,7 @@ const Chef = () => {
         </h2>
       </div>
 
-      <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
+      <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6 px-2">
         {allChef?.map((chef) => (
           <ChefCard key={chef.id} chef={chef}></ChefCard>
         ))}
@@ -26,4 +26,4 @@ const Chef = () => {
   );
 };
 
-export default Chef;
+export default AllChef;

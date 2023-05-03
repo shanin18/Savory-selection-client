@@ -1,11 +1,21 @@
 import { Rating } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
 import React, { useState } from "react";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 const RecipeCard = ({ recipe }) => {
   const [fold, setFold] = useState(false);
-  const { img, cooking_method, recipe_name, ingredients, rating, favorite } =
+  const [disable, setDisable] = useState(false);
+
+  const { img, cooking_method, recipe_name, ingredients, rating } =
     recipe;
 
+  const handleFavorite = () =>{
+    setDisable(!disable)
+    toast("Item added to favorite!!");
+
+  }
   return (
     <div className="flex flex-col justify-between rounded-lg shadow-xl overflow-hidden mb-10">
       <div>
@@ -16,7 +26,7 @@ const RecipeCard = ({ recipe }) => {
           {recipe_name}
         </h3>
         <details>
-          <summary className="font-bold font-montserrat text-lg mb-2">
+          <summary id="ingredients" className="font-bold font-montserrat text-lg mb-2 w-fit">
             ingredients:
           </summary>
           <div>
@@ -26,6 +36,7 @@ const RecipeCard = ({ recipe }) => {
               </p>
             ))}
           </div>
+          <label htmlFor="ingredients"></label>
         </details>
 
         <div className="font-montserrat mt-3 mb-2">
@@ -57,6 +68,7 @@ const RecipeCard = ({ recipe }) => {
           <Rating style={{ maxWidth: 80 }} value={rating} readOnly />
           <small>({rating})</small>
         </div>
+        <button disabled={disable && true } onClick={handleFavorite} className="btn btn-warning w-full mt-4 ">favorite</button>
       </div>
     </div>
   );

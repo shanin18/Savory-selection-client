@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const ChefCard = ({ chef }) => {
   const { id, name, picture, years_of_experience, likes } = chef;
   return (
-    <div className="rounded-lg border shadow-xl overflow-hidden flex flex-col justify-between mx-2">
+    <div className="rounded-lg border shadow-xl overflow-hidden flex flex-col justify-between">
       <div>
         <img className="w-full" src={picture} alt="image" />
       </div>

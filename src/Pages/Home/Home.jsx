@@ -1,12 +1,12 @@
 import React from "react";
-import Chef from "../Chef/Chef";
+import AllChef from "../AllChef/AllChef";
 import Banner from "../../Shared/Banner";
 
 const Home = () => {
   return (
     <div>
       <Banner></Banner>
-      <Chef></Chef>
+      <AllChef></AllChef>
     </div>
   );
 };
