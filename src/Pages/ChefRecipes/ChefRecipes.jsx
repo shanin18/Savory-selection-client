@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { useLoaderData, useNavigation } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import RecipeCard from "./RecipeCard";
 
 // react lazyLoad
 import LazyLoad from "react-lazy-load";
 
-// react Swiper 
+// react Swiper
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
@@ -27,6 +27,8 @@ const ChefRecipes = () => {
     years_of_experience,
   } = allChef;
 
+  const navigate = useNavigate();
+
   // fetching data for chefs recipes
   useEffect(() => {
     fetch("https://savory-selection-server-shanin18.vercel.app/recipes")
@@ -35,7 +37,7 @@ const ChefRecipes = () => {
   }, []);
 
   const chefRecipes = recipes?.filter((recipe) => recipe.chef_id == id);
-  console.log(chefRecipes)
+
   return (
     <div className="container mx-auto my-20 px-2">
       <div className="flex justify-center">
@@ -45,7 +47,7 @@ const ChefRecipes = () => {
       </div>
       <div className=" md:flex gap-10">
         <div className="md:w-2/5">
-          <LazyLoad className="min-h-full" threshold={0.90}>
+          <LazyLoad className="min-h-full" threshold={0.9}>
             <img className="w-full rounded-md" src={picture} alt="image" />
           </LazyLoad>
         </div>
@@ -81,6 +83,12 @@ const ChefRecipes = () => {
             Experience: {years_of_experience} Years
           </p>
           <p className="font-montserrat font-medium my-2">Likes: {likes}</p>
+          <button
+            onClick={() => navigate("/")}
+            className="btn btn-warning font-montserrat capitalize mt-5"
+          >
+            Back
+          </button>
         </div>
       </div>
 

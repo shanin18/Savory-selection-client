@@ -9,7 +9,7 @@ const ChefCard = ({ chef }) => {
   return (
     <div className="rounded-lg border shadow-xl overflow-hidden flex flex-col justify-between">
       <div>
-        <LazyLoad className="min-h-full" threshold={0.90}>
+        <LazyLoad className="min-h-full" threshold={0.9}>
           <img className="w-full" src={picture} alt="image" />
         </LazyLoad>
       </div>

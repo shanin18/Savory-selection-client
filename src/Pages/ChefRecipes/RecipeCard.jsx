@@ -11,14 +11,12 @@ const RecipeCard = ({ recipe }) => {
   const [fold, setFold] = useState(false);
   const [disable, setDisable] = useState(false);
 
-  const { img, cooking_method, recipe_name, ingredients, rating } =
-    recipe;
+  const { img, cooking_method, recipe_name, ingredients, rating } = recipe;
 
-  const handleFavorite = () =>{
-    setDisable(!disable)
+  const handleFavorite = () => {
+    setDisable(!disable);
     toast("Item added to favorite!!");
-
-  }
+  };
   return (
     <div className="flex flex-col justify-between rounded-lg shadow-xl overflow-hidden mb-10">
       <div>
@@ -29,7 +27,10 @@ const RecipeCard = ({ recipe }) => {
           {recipe_name}
         </h3>
         <details>
-          <summary id="ingredients" className="font-bold font-montserrat text-lg cursor-pointer w-fit">
+          <summary
+            id="ingredients"
+            className="font-bold font-montserrat text-lg cursor-pointer w-fit"
+          >
             ingredients:
           </summary>
           <div>
@@ -71,7 +72,13 @@ const RecipeCard = ({ recipe }) => {
           <Rating style={{ maxWidth: 80 }} value={rating} readOnly />
           <small>({rating})</small>
         </div>
-        <button disabled={disable && true } onClick={handleFavorite} className="btn btn-warning w-full mt-4 ">favorite</button>
+        <button
+          disabled={disable && true}
+          onClick={handleFavorite}
+          className="btn btn-warning w-full mt-4 "
+        >
+          favorite
+        </button>
       </div>
     </div>
   );

@@ -1,34 +1,27 @@
-import React, { createRef } from "react";
+import React, { useRef } from "react";
 import img1 from "/q_Images/q1.png";
 import img2 from "/q_Images/q2.png";
 import img3 from "/q_Images/q3.png";
+import ReactToPrint from "react-to-print";
 import { FaDownload } from "react-icons/fa";
-import Pdf from "react-to-pdf";
 
 const Blog = () => {
-  const ref = createRef();
-  return (
-    <div className="container mx-auto mb-10 pt-10">
-      <div className="text-center">
-        {/* react pdf */}
-        <Pdf
-          targetRef={ref}
-          className="w-full mx-auto"
-          filename="Blog-Question.pdf"
-        >
-          {({ toPdf }) => (
-            <button
-              onClick={toPdf}
-              className="font-montserrat font-semibold border pl-2 pr-6 shadow-xl btn capitalize mb rounded py-3"
-            >
-              <FaDownload className="inline w-10 pl-2"></FaDownload> Download as
-              PDF
-            </button>
-          )}
-        </Pdf>
-      </div>
+  const ref = useRef();
 
-      <div ref={ref} className="my-20">
+  return (
+    <div>
+      <div ref={ref} className="container mx-auto px-4 md:px-10">
+        <div className="flex justify-center my-10">
+          <ReactToPrint
+            trigger={() => (
+              <button className="font-montserrat font-semibold border pl-2 pr-6 shadow-xl btn capitalize mb rounded py-3">
+                <FaDownload className="inline w-10 pl-2"></FaDownload> Download
+                as PDF
+              </button>
+            )}
+            content={() => ref.current}
+          />
+        </div>
         <div className="flex justify-center">
           <h2 className="text-3xl md:text-4xl font-bold font-montserrat mb-10 border-0 border-b-4 border-b-yellow-300 rounded-xl shadow-xl px-5 md:px-10 text-center mx-2 border-t py-4 w-fit">
             Questions & Answers
@@ -36,7 +29,7 @@ const Blog = () => {
         </div>
 
         {/* question -1 */}
-        <div className="flex flex-col gap-6 mx-2 md:mx-0">
+        <div className="flex flex-col gap-6">
           <div>
             <h3 className="text-2xl font-bold font-montserrat mb-3">
               Differences between uncontrolled and controlled components.

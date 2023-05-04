@@ -2,7 +2,6 @@ import React from "react";
 
 const Catering = () => {
   return (
-
     // hard coded catering section
     <div className="bg-warning">
       <div className="container mx-auto py-10">
@@ -54,7 +53,7 @@ const Catering = () => {
               Desserts
             </h4>
           </div>
-          
+
           <div className="bg-white p-10 hover:shadow-2xl duration-300 ">
             <div className="px-10">
               <img

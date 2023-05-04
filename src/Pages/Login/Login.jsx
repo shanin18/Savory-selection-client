@@ -54,7 +54,7 @@ const Login = () => {
   };
 
   return (
-    <div className="my-10 mx-1">
+    <div className="my-24 mx-1">
       <div className="md:w-[570px] px-14 py-9 border border-gray-300 rounded-lg shadow-xl mx-auto">
         <h1 className="font-bold font-montserrat text-2xl mb-14 text-[#000000]">
           Login

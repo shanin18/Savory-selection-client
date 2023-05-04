@@ -42,7 +42,7 @@ const Register = () => {
   };
 
   return (
-    <div className="my-10 mx-1">
+    <div className="my-24 mx-1">
       <div className="md:w-[570px] px-14 py-9 border border-gray-300 rounded-lg shadow-xl mx-auto">
         <h1 className="font-bold font-montserrat text-2xl mb-14 text-[#000000]">
           Create an account
@@ -106,7 +106,10 @@ const Register = () => {
           <p className="font-montserrat font-semibold text-sm">
             Already have an account?
           </p>
-          <Link to="/login" className="text-[#F9A51A] underline ml-2 font-montserrat font-semibold text-sm">
+          <Link
+            to="/login"
+            className="text-[#F9A51A] underline ml-2 font-montserrat font-semibold text-sm"
+          >
             Login
           </Link>
         </div>
