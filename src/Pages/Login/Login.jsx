@@ -1,20 +1,25 @@
 import React, { useContext, useRef, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import LoginWithSocial from "../../components/LoginWithSocial";
+
+// react toastify
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+
+// react icons
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import { AuthContext } from "../../Context/AuthProvider";
 
 const Login = () => {
   const [checked, setChecked] = useState(false);
   const [passHidden, setPassHidden] = useState(false);
-  const [error, setError] = useState("")
+  const [error, setError] = useState("");
+  const { loginUser, resetPassword } = useContext(AuthContext);
+
   const emailRef = useRef();
   const navigate = useNavigate();
   const location = useLocation();
   const from = location?.state?.from?.pathname || "/";
-  const { loginUser, resetPassword } = useContext(AuthContext);
 
   const handleFormLogin = (e) => {
     e.preventDefault();
@@ -22,7 +27,7 @@ const Login = () => {
     const email = form.email.value;
     const password = form.password.value;
     setError("");
-    if(password.length < 6){
+    if (password.length < 6) {
       setError("password should be at least 6 character");
       return;
     }
@@ -30,10 +35,9 @@ const Login = () => {
     loginUser(email, password)
       .then(() => {
         navigate(from, { replace: true });
+        form.reset();
       })
       .catch((err) => setError(err?.message));
-
-    form.reset();
   };
 
   const handleResetPassword = () => {
@@ -44,9 +48,8 @@ const Login = () => {
           toast.warning("please check your email");
         })
         .catch((err) => toast.error(err));
-    }
-    else{
-      toast.error("please provide email")
+    } else {
+      toast.error("please provide email");
     }
   };
 
@@ -90,7 +93,6 @@ const Login = () => {
             </div>
             <small className="text-red-600 font-montserrat mt-2">{error}</small>
           </div>
-
 
           <div className="flex justify-between items-center mb-12">
             <div className="flex items-start">

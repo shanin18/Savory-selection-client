@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useLoaderData, useNavigation } from "react-router-dom";
 import RecipeCard from "./RecipeCard";
+
+// react lazyLoad
 import LazyLoad from "react-lazy-load";
+
+// react Swiper 
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
@@ -10,9 +14,8 @@ import { Pagination } from "swiper";
 const ChefRecipes = () => {
   const [fold, setFold] = useState(false);
   const [recipes, setRecipes] = useState([]);
+
   const allChef = useLoaderData();
-  const navigation = useNavigation();
-  console.log(navigation)
 
   const {
     id,
@@ -24,6 +27,7 @@ const ChefRecipes = () => {
     years_of_experience,
   } = allChef;
 
+  // fetching data for chefs recipes
   useEffect(() => {
     fetch("https://savory-selection-server-shanin18.vercel.app/recipes")
       .then((res) => res.json())
@@ -41,7 +45,7 @@ const ChefRecipes = () => {
       </div>
       <div className=" md:flex gap-10">
         <div className="md:w-2/5">
-          <LazyLoad>
+          <LazyLoad className="min-h-full" threshold={0.90}>
             <img className="w-full rounded-md" src={picture} alt="image" />
           </LazyLoad>
         </div>

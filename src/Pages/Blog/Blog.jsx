@@ -3,7 +3,6 @@ import img1 from "/q_Images/q1.png";
 import img2 from "/q_Images/q2.png";
 import img3 from "/q_Images/q3.png";
 import { FaDownload } from "react-icons/fa";
-import ReactDOM from "react-dom";
 import Pdf from "react-to-pdf";
 
 const Blog = () => {
@@ -11,17 +10,22 @@ const Blog = () => {
   return (
     <div className="container mx-auto mb-10 pt-10">
       <div className="text-center">
-      <Pdf targetRef={ref} className="w-full mx-auto" filename="Blog-Question.pdf">
-        {({ toPdf }) => (
-          <button
-            onClick={toPdf}
-            className="font-montserrat font-semibold border pl-2 pr-6 shadow-xl btn capitalize mb rounded py-3"
-          >
-            <FaDownload className="inline w-10 pl-2"></FaDownload> Download as
-            PDF
-          </button>
-        )}
-      </Pdf>
+        {/* react pdf */}
+        <Pdf
+          targetRef={ref}
+          className="w-full mx-auto"
+          filename="Blog-Question.pdf"
+        >
+          {({ toPdf }) => (
+            <button
+              onClick={toPdf}
+              className="font-montserrat font-semibold border pl-2 pr-6 shadow-xl btn capitalize mb rounded py-3"
+            >
+              <FaDownload className="inline w-10 pl-2"></FaDownload> Download as
+              PDF
+            </button>
+          )}
+        </Pdf>
       </div>
 
       <div ref={ref} className="my-20">
@@ -31,10 +35,11 @@ const Blog = () => {
           </h2>
         </div>
 
-        <div className="flex flex-col gap-6">
+        {/* question -1 */}
+        <div className="flex flex-col gap-6 mx-2 md:mx-0">
           <div>
             <h3 className="text-2xl font-bold font-montserrat mb-3">
-              Differences between uncontrolled and controlledcomponents.
+              Differences between uncontrolled and controlled components.
             </h3>
             <p className="font-montserrat">
               In the context of software development, the terms "controlled
@@ -53,6 +58,8 @@ const Blog = () => {
               configuring them or managing their state.
             </p>
           </div>
+
+          {/* question -2 */}
           <div>
             <h3 className="text-2xl font-bold font-montserrat mb-3">
               How to validate React props using PropTypes
@@ -88,6 +95,8 @@ const Blog = () => {
               can see this warning in your browser's developer console.
             </p>
           </div>
+
+          {/* question -3 */}
           <div>
             <h3 className="text-2xl font-bold font-montserrat mb-3">
               Difference between nodejs and express js.
@@ -130,6 +139,8 @@ const Blog = () => {
               Express.js, such as middleware libraries, templates, and examples.
             </p>
           </div>
+
+          {/* question -4 */}
           <div>
             <h3 className="text-2xl font-bold font-montserrat mb-3">
               What is a custom hook, and why will you create a custom hook?

@@ -13,8 +13,8 @@ import {
   updateProfile,
 } from "firebase/auth";
 
-export const AuthContext = createContext(null);
 const auth = getAuth(app);
+export const AuthContext = createContext(null);
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
@@ -48,10 +48,10 @@ const AuthProvider = ({ children }) => {
     return signOut(auth);
   };
 
-  const resetPassword = (email) =>{
+  const resetPassword = (email) => {
     setLoading(true);
-    return sendPasswordResetEmail(auth, email)
-  }
+    return sendPasswordResetEmail(auth, email);
+  };
 
   useEffect(() => {
     const unSubscriber = onAuthStateChanged(auth, (currentUser) => {
@@ -64,14 +64,13 @@ const AuthProvider = ({ children }) => {
     };
   }, []);
 
-  
-  const updateUserProfile = (currentUser, name, url) =>{
+  const updateUserProfile = (currentUser, name, url) => {
     setLoading(true);
     return updateProfile(currentUser, {
-      displayName:name,
-      photoURL:url,
-    })
-  }
+      displayName: name,
+      photoURL: url,
+    });
+  };
 
   const authInfo = {
     user,

@@ -1,5 +1,6 @@
 import React from "react";
 import banner2 from "/banner-images/banner2.jpg";
+// react icons
 import { HiArrowNarrowDown } from "react-icons/hi";
 
 const Banner = () => {

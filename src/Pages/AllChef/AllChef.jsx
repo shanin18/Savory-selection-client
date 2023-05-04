@@ -5,6 +5,7 @@ import LoadingSpinner from "../../components/LoadingSpinner";
 
 const AllChef = () => {
   
+  // set spinner conditionally
   const navigation = useNavigation();
   if(navigation.state === "loading"){
     return <LoadingSpinner></LoadingSpinner>

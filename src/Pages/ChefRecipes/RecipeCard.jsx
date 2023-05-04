@@ -1,6 +1,9 @@
+import React, { useState } from "react";
+// react icons
 import { Rating } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
-import React, { useState } from "react";
+
+// react toastify
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 

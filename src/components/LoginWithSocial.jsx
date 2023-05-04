@@ -1,11 +1,13 @@
 import React, { useContext } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Context/AuthProvider";
+
+// react toastify
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const LoginWithSocial = () => {
-  const {loginWithGoogle, loginWithGithub} = useContext(AuthContext)
+  const { loginWithGoogle, loginWithGithub } = useContext(AuthContext);
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -14,7 +16,7 @@ const LoginWithSocial = () => {
   const handleLoginWithGithub = () => {
     loginWithGithub()
       .then(() => {
-        navigate(from)
+        navigate(from);
         toast("SignIn successfully!!");
       })
       .catch((err) => toast.error(err.message));
@@ -23,12 +25,12 @@ const LoginWithSocial = () => {
   const handleLoginWithGoogle = () => {
     loginWithGoogle()
       .then(() => {
-        navigate(from)
+        navigate(from);
         toast("SignIn successfully!!");
       })
-      .catch((err) => toast.err(err.message));
+      .catch((err) => toast.error(err.message));
   };
-  
+
   return (
     <div>
       <div className="mt-5">

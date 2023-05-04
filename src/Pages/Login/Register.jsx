@@ -2,8 +2,12 @@ import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import LoginWithSocial from "../../components/LoginWithSocial";
 import { AuthContext } from "../../Context/AuthProvider";
+
+// react toastify
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+
+// react icons
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 
 const Register = () => {
@@ -32,9 +36,9 @@ const Register = () => {
           .then(() => {
             navigate("/");
           })
-          .catch((err) => console.log(err));
+          .catch((err) => toast.error(err.message));
       })
-      .catch((err) => toast.error(err.message));
+      .catch((err) => console.log(err.message));
   };
 
   return (

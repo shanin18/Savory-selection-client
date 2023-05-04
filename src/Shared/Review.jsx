@@ -4,10 +4,14 @@ import Marquee from "react-fast-marquee";
 
 const Review = () => {
   return (
+    // hard coded review section
     <div className="container mx-auto my-20">
-      <h2 className="font-pacifico text-black text-center text-3xl md:text-5xl">Reviews</h2>
+      <h2 className="font-pacifico text-black text-center text-3xl md:text-5xl">
+        Reviews
+      </h2>
       <Marquee play speed={80} pauseOnHover>
         <div className="flex gap-5 py-10">
+          {/* item -1 */}
           <div className="card w-96 card-side bg-base-100 shadow-xl">
             <figure>
               <img
@@ -33,6 +37,8 @@ const Review = () => {
               </p>
             </div>
           </div>
+
+          {/* item -2 */}
           <div className="card w-96 card-side bg-base-100 shadow-xl">
             <figure>
               <img
@@ -58,6 +64,8 @@ const Review = () => {
               </p>
             </div>
           </div>
+
+          {/* item -3 */}
           <div className="card w-96 card-side bg-base-100 shadow-xl">
             <figure>
               <img
@@ -84,6 +92,8 @@ const Review = () => {
               </p>
             </div>
           </div>
+
+          {/* item -4 */}
           <div className="card w-96 card-side bg-base-100 shadow-xl mr-5">
             <figure>
               <img

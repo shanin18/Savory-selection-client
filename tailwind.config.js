@@ -9,7 +9,7 @@ export default {
     extend: {},
     fontFamily: {
       montserrat: ["Montserrat", "sans-serif"],
-      pacifico:['Pacifico', "cursive"]
+      pacifico: ["Pacifico", "cursive"],
     },
   },
   plugins: [require("flowbite/plugin"), require("daisyui")],
