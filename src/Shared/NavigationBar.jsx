@@ -47,7 +47,7 @@ const NavigationBar = () => {
       {/*  navItems area */}
       <ul
         className={`bg-warning md:flex gap-12 md:items-center z-50 md:z-auto md:static absolute w-full left-0 md:w-auto md:py-0 py-4 md:pl-0 pl-7 md:opacity-100 opacity-0 md:top-[-400px] transition-all ${
-          toggle ? "top-[93px] md:top-[94px]  opacity-100" : "-z-50"
+          toggle ? "top-[93px] md:top-[94px] opacity-100" : "-z-20"
         }`}
       >
         <li className="text-lg lg:px-2 py-6 font-semibold font-montserrat">
@@ -73,7 +73,7 @@ const NavigationBar = () => {
             </button>
           </NavLink>
         ) : (
-          <div className="dropdown dropdown-end">
+          <div className="dropdown dropdown-start md:dropdown-end">
             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
               <div id="tool-tip" className="w-10 rounded-full">
                 <img
@@ -87,7 +87,7 @@ const NavigationBar = () => {
             </label>
             <ul
               tabIndex={0}
-              className="mt-3 p-2 shadow menu menu-compact dropdown-content dropdown-center md:dropdown-end bg-base-100 rounded-box w-52"
+              className="mt-3 p-2 shadow menu menu-compact dropdown-content md:dropdown-end bg-base-100 rounded-box w-52"
             >
               <li onClick={handleLogOut}>
                 <p className="font-montserrat font-semibold">Logout</p>
