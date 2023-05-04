@@ -42,8 +42,8 @@ const Register = () => {
   };
 
   return (
-    <div className="my-10">
-      <div className="w-[570px] px-14 py-9 border border-gray-300 rounded-lg shadow-xl mx-auto">
+    <div className="my-10 mx-1">
+      <div className="md:w-[570px] px-14 py-9 border border-gray-300 rounded-lg shadow-xl mx-auto">
         <h1 className="font-bold font-montserrat text-2xl mb-14 text-[#000000]">
           Create an account
         </h1>
@@ -102,13 +102,12 @@ const Register = () => {
           </div>
         </form>
 
-        <div className="flex justify-center">
-          <Link
-            to="/login"
-            className="font-montserrat font-semibold text-sm my-4"
-          >
+        <div className="flex flex-wrap gap-2 md:gap-0 my-4 justify-center">
+          <p className="font-montserrat font-semibold text-sm">
             Already have an account?
-            <span className="text-[#F9A51A] underline ml-2">Login</span>
+          </p>
+          <Link to="/login" className="text-[#F9A51A] underline ml-2 font-montserrat font-semibold text-sm">
+            Login
           </Link>
         </div>
 

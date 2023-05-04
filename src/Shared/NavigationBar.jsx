@@ -47,7 +47,7 @@ const NavigationBar = () => {
       {/*  navItems area */}
       <ul
         className={`bg-warning md:flex gap-12 md:items-center z-50 md:z-auto md:static absolute w-full left-0 md:w-auto md:py-0 py-4 md:pl-0 pl-7 md:opacity-100 opacity-0 md:top-[-400px] transition-all ${
-          toggle ? "top-[93px] md:top-[94px] opacity-100" : ""
+          toggle ? "top-[93px] md:top-[94px]  opacity-100" : "-z-50"
         }`}
       >
         <li className="text-lg lg:px-2 py-6 font-semibold font-montserrat">

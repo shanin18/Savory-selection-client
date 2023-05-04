@@ -35,7 +35,7 @@ const ChefRecipes = () => {
   }, []);
 
   const chefRecipes = recipes?.filter((recipe) => recipe.chef_id == id);
-
+  console.log(chefRecipes)
   return (
     <div className="container mx-auto my-20 px-2">
       <div className="flex justify-center">

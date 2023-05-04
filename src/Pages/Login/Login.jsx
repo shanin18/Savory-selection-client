@@ -54,8 +54,8 @@ const Login = () => {
   };
 
   return (
-    <div className="my-10">
-      <div className="w-[570px] px-14 py-9 border border-gray-300 rounded-lg shadow-xl mx-auto">
+    <div className="my-10 mx-1">
+      <div className="md:w-[570px] px-14 py-9 border border-gray-300 rounded-lg shadow-xl mx-auto">
         <h1 className="font-bold font-montserrat text-2xl mb-14 text-[#000000]">
           Login
         </h1>
@@ -94,7 +94,7 @@ const Login = () => {
             <small className="text-red-600 font-montserrat mt-2">{error}</small>
           </div>
 
-          <div className="flex justify-between items-center mb-12">
+          <div className="flex flex-wrap gap-2 md:gap-0 justify-between items-center mb-12">
             <div className="flex items-start">
               <div className="flex items-center h-5">
                 <input
@@ -130,15 +130,15 @@ const Login = () => {
           </div>
         </form>
 
-        <div className="flex justify-center">
+        <div className="flex flex-wrap gap-2 md:gap-0 justify-center my-4">
+          <p className="font-montserrat font-semibold text-sm">
+            Don't have an account?
+          </p>
           <Link
             to="/register"
-            className="font-montserrat font-semibold text-sm my-4"
+            className="text-[#F9A51A] underline ml-2 font-montserrat font-semibold text-sm"
           >
-            Don't have an account?
-            <span className="text-[#F9A51A] underline ml-2">
-              Create an account
-            </span>
+            Create an account
           </Link>
         </div>
 
