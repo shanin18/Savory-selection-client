@@ -38,7 +38,7 @@ const Register = () => {
           })
           .catch((err) => toast.error(err.message));
       })
-      .catch((err) => console.log(err.message));
+      .catch((err) => toast.error(err.message));
   };
 
   return (

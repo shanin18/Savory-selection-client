@@ -47,7 +47,7 @@ const ChefRecipes = () => {
       </div>
       <div className=" md:flex gap-10">
         <div className="md:w-2/5">
-          <LazyLoad className="min-h-full" threshold={0.9}>
+          <LazyLoad className="min-h-full" threshold={0.9} onContentVisible={console.log("picture loaded with lazy load")}>
             <img className="w-full rounded-md" src={picture} alt="image" />
           </LazyLoad>
         </div>

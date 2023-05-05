@@ -9,9 +9,8 @@ const Blog = () => {
   const ref = useRef();
 
   return (
-    <div>
-      <div ref={ref} className="container mx-auto px-4 md:px-10">
-        <div className="flex justify-center my-10">
+    <div className="my-10">
+      <div className="flex justify-center mb">
           <ReactToPrint
             trigger={() => (
               <button className="font-montserrat font-semibold border pl-2 pr-6 shadow-xl btn capitalize mb rounded py-3">
@@ -22,6 +21,7 @@ const Blog = () => {
             content={() => ref.current}
           />
         </div>
+      <div ref={ref} className="container mx-auto px-4 md:px-10 pt-10">
         <div className="flex justify-center">
           <h2 className="text-3xl md:text-4xl font-bold font-montserrat mb-10 border-0 border-b-4 border-b-yellow-300 rounded-xl shadow-xl px-5 md:px-10 text-center mx-2 border-t py-4 w-fit">
             Questions & Answers

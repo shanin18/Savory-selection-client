@@ -5,11 +5,12 @@ import { Link } from "react-router-dom";
 import LazyLoad from "react-lazy-load";
 
 const ChefCard = ({ chef }) => {
-  const { id, name, picture, years_of_experience, likes } = chef;
+  console.log(chef)
+  const { id, name, picture, years_of_experience, likes, number_of_recipes } = chef;
   return (
     <div className="rounded-lg border shadow-xl overflow-hidden flex flex-col justify-between">
       <div>
-        <LazyLoad className="min-h-full" threshold={0.9}>
+        <LazyLoad className="min-h-full" threshold={0.9} onContentVisible={console.log("picture loaded with lazy load")}>
           <img className="w-full" src={picture} alt="image" />
         </LazyLoad>
       </div>
@@ -19,6 +20,11 @@ const ChefCard = ({ chef }) => {
           <p className="font-montserrat font-medium mt-3">
             Experience: {years_of_experience} years
           </p>
+
+          <p className="font-montserrat font-medium mt-3">
+            Number of recipes: {number_of_recipes}
+          </p>
+
           <p className="font-montserrat font-medium mt-3">Likes: {likes}</p>
         </div>
         <div className="mt-6">
