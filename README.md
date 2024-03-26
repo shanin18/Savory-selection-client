@@ -1,12 +1,10 @@
-<<<<<<< HEAD
 <a name="readme-top"></a>
 
 <!-- TABLE OF CONTENTS -->
 
-Budget App
+#  📗 Table of Contents <a name="about-project"></a>
 
-- [📗 Table of Contents](#-table-of-contents)
-- [📸 Savory Selection ](#-Savory-Selection-)
+- [🥘😋 Savory Selection ](#-Savory-Selection-)
   - [🛠 Built With ](#-built-with-)
     - [Tech Stack ](#tech-stack-)
     - [Key Features ](#key-features-)
@@ -25,7 +23,7 @@ Budget App
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📸 Savory Selection <a name="about-project"></a>
+# 🥘😋 Savory Selection <a name="about-project"></a>
 
 Welcome to Savory Selection a delightful online destination for exploring the vibrant world of Bangladeshi cuisine. Savory Selection is dedicated exclusively to the rich culinary heritage of Bangladesh, showcasing a wide array of traditional and contemporary dishes that will tantalize your taste buds.
 
